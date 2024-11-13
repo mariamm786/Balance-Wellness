@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance Wellness</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <h1>Balance Wellness</h1>
+            <p>"Your best partner during your period (after your blanket and chocolates)"</p>
+        </header>
+
+        <!-- Introduction Section -->
+        <section class="intro">
+            <p>{{ website_info }}</p>
+        </section>
+
+        <!-- Natural Remedies Section -->
+        <section class="remedies">
+            <h2>Natural Remedies to Help Relieve Pain</h2>
+            <ul>
+                {% for remedy in home_remedies %}
+                    <li>{{ remedy }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <!-- Period Care Essentials Section -->
+        <section class="essentials">
+            <h2>Period Care Essentials</h2>
+            <ul>
+                <li>
+                    <strong>Pads:</strong> Disposable, absorbent layers worn in underwear to catch menstrual flow. 
+                    Great for comfort and ease of use.
+                </li>
+                <li>
+                    <strong>Tampons:</strong> Small, cylindrical products inserted into the vagina to absorb flow.
+                    Ensure to change every 4-8 hours for safety.
+                </li>
+                <li>
+                    <strong>Period Underwear:</strong> Special underwear with built-in absorbent layers, reusable and 
+                    eco-friendly.
+                </li>
+            </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>Is it normal to feel cramps?</h3>
+                <p>Yes, cramps are common and happen due to your body releasing chemicals that help shed the uterine lining.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How long will my period last?</h3>
+                <p>Periods typically last 3-7 days, but each person is different. Track it over time to understand your cycle.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What should I do if my period is late?</h3>
+                <p>Periods can fluctuate, especially if you're young or stressed. If you're worried, consult a healthcare provider.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2024 Balance Wellness. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+{% endblock %}
+

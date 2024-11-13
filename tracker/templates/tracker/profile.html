@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="profile-container">
+    <h1 class="profile-title">{{ user.username }}'s Profile</h1>
+
+    <div class="add-symptom-section">
+        <h2 class="section-title">Log a Symptom</h2>
+        <form method="POST" class="symptom-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-submit">Add Symptom</button>
+        </form>
+    </div>
+
+    <div class="symptom-history-section">
+        <h2 class="section-title">Your Symptom History</h2>
+        <ul class="symptom-list">
+            {% for log in symptom_logs %}
+                <li class="symptom-item">
+                    <span class="symptom-date">{{ log.date|date:"F j, Y" }}</span>
+                    <span class="symptom-details">{{ log.symptom }} - Severity: <strong>{{ log.severity }}</strong></span>
+                </li>
+            {% empty %}
+                <p class="no-symptoms">No symptoms logged yet.</p>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+

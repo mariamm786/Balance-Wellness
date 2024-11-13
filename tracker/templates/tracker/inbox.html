@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Inbox</h2>
+<ul>
+    {% for message in messages %}
+        <li>
+            <a href="{% url 'message_detail' message.id %}">
+                {{ message.subject }} - {{ message.sender.username }}
+                {% if not message.is_read %} <strong>(Unread)</strong> {% endif %}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'send_message' %}">Send a Message</a>
+{% endblock %}
